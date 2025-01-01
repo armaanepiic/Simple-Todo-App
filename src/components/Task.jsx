@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-export default function Task({ task }) {
+export default function Task({ task, onChangeTask }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const taskContent = isEditing ? (
     <>
-      <input type="text" />
+          <input type="text" value={task.text} onChange={(e) => onChangeTask({
+              ...task, text: e.target.value,
+      })} />
       <button onClick={() => setIsEditing(false)}>Save</button>
     </>
   ) : (
