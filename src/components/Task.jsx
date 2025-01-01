@@ -19,7 +19,9 @@ export default function Task({ task, onChangeTask }) {
 
   return (
     <>
-      <input type="checkbox" checked={task.done} />
+          <input type="checkbox" checked={task.done} onChange={(e) => onChangeTask({
+          ...task, done: e.target.checked
+      })} />
 
       {taskContent}
 
