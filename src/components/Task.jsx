@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Task({ task, onChangeTask, onDeleteTask }) {
+export default function Task({ task, onChange, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const taskContent = isEditing ? (
@@ -9,7 +9,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }) {
         type="text"
         value={task.text}
         onChange={(e) =>
-          onChangeTask({
+          onChange({
             ...task,
             text: e.target.value,
           })
@@ -30,7 +30,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }) {
         type="checkbox"
         checked={task.done}
         onChange={(e) =>
-          onChangeTask({
+          onChange({
             ...task,
             done: e.target.checked,
           })
@@ -39,7 +39,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }) {
 
       {taskContent}
 
-      <button onClick={()=> onDeleteTask(task.id)}>Delete</button>
+      <button onClick={() => onDelete(task.id)}>Delete</button>
     </>
   );
 }

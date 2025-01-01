@@ -1,6 +1,6 @@
-import AddTask from "./components/AddTask";
+import AddTask from './components/AddTask'
 import TaskList from "./components/TaskList";
-import { initialTask } from "./../data/initialTask";
+import {initialTask} from './data/initialTask'
 import { useState } from "react";
 import "./App.css";
 let nextId = 4;
@@ -42,6 +42,7 @@ export default function App() {
       <h1>Simple Todo App</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList
+        tasks={tasks}
         onChangeTask={handleChangeTask}
         onDeleteTask={handleDeleteTask}
       />
