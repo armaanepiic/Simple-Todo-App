@@ -1,6 +1,5 @@
 import Task from "./Task";
 
-
 export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
   return (
     <>
@@ -10,7 +9,7 @@ export default function TaskList({tasks, onChangeTask, onDeleteTask}) {
             <li key={task.id}>
               <Task
                 task={task}
-                onChange={onChangeTask}
+                onChange={onChangeTask} 
                 onDelete={onDeleteTask}
               />
             </li>
